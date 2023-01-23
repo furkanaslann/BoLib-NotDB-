@@ -1,0 +1,26 @@
+﻿@using Bolib.com.webui.ViewModels
+@model BookViewModel
+@{
+    var books = Model.Books;
+}
+@section Categories{ 
+    @await Component.InvokeAsync("Categories")
+}
+
+<div class="row">
+    @*<div class="col-md-3">
+            @await Component.InvokeAsync("Categories")
+        </div>*@
+    @if (books.Count() == 0)
+    {
+        @await Html.PartialAsync("_nobooks")
+    }
+    else
+    {
+
+        @foreach (var book in books)
+        {
+            @await Html.PartialAsync("_books", book)
+        }
+    }
+</div>

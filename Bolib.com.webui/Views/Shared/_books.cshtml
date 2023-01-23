@@ -1,0 +1,34 @@
+﻿@model Book
+@*Others Books*@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<section class="section others-book">
+    <div class="container card">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="book-item mb-4 mb-lg-0">
+                    <img src="@Model.ImageUrl" alt="" class="img-fluid">
+                    <a href="#" class="hover-item">
+                        <i class="ti-link"></i>
+                    </a>
+                    <div>
+                        <a href="#" class="hover-item">
+                            <i class="ti-shopping-cart"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <h5>@Model.BookName</h5>
+                <p>@Model.Description</p>
+                <a asp-controller="Book" asp-action="Details" asp-route-id="@Model.BookId" class="btn btn-primary btn-sm">Details</a> 
+                <a asp-controller="admin" asp-action="a_update" asp-route-id="@Model.BookId" class="btn btn-primary btn-sm">Edit</a> 
+                
+                <form method="post" action="/admin/delete">
+                    <input type="hidden" name="BookId" value="@Model.BookId">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>

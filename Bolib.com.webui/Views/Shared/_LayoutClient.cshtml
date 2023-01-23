@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="/Template/source/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Animate Css -->
+    <link rel="stylesheet" href="/Template/source/plugins/animate-css/animate.css">
+    <!-- Themify icon Css -->
+    <link rel="stylesheet" href="/Template/source/plugins/themify/css/themify-icons.css">
+    <link rel="stylesheet" href="/Template/source/plugins/magnific-popup/magnific-popup.css">
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" href="/Template/source/plugins/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="/Template/source/plugins/slick-carousel/slick/slick-theme.css">
+    <link rel="stylesheet" href="/Template/source/plugins/owl-carousel/owl.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="~/Template/theme/css/style.css">
+    <title>BoLib</title>
+</head>
+<body>
+    @await Html.PartialAsync("_navbar")
+    <main style="margin-top: 113px">
+        <div class="container">
+            @if (IsSectionDefined("Categories"))
+            {
+                <div class="row">
+                    <div class="col-md-3">
+                        @RenderSection("Categories", false)
+
+                    </div>
+                    <div class="col-md-9">
+                        @RenderBody()
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-12">
+                    @RenderBody()
+                </div>
+            }
+        </div>
+    </main>
+
+    <footer class="mb-0 py-5 bg-dark text-white text-center"><span class="text-color">Bo</span>Lib | 2022</footer>
+
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 3.1 -->
+    <script src="/Template/theme/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="/Template/theme/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/Template/theme/plugins/owl-carousel/owl-carousel.js"></script>
+    <!-- Slick Slider -->
+    <script src="/Template/theme/plugins/slick-carousel/slick/slick.min.js"></script>
+    <script src="/Template/theme/plugins/magnific-popup/jquery.magnific-popup.js"></script>
+    <script src="/Template/theme/js/theme.js"></script>
+</body>
+</html>
